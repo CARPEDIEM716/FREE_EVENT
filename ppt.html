@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예배 PPT 자동 생성 신청</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Malgun Gothic', sans-serif; background-color: #F9FAFB; }
+        .form-input { width: 100%; padding: 0.75rem; border: 1px solid #D1D5DB; border-radius: 0.5rem; margin-top: 0.25rem; font-size: 0.95rem; }
+        .form-input:focus { outline: none; border-color: #D97706; ring: 2px; ring-color: #FCD34D; }
+    </style>
+</head>
+<body class="text-gray-800 pb-20">
+
+    <header class="bg-amber-600 text-white text-center py-10 px-4">
+        <h1 class="text-3xl font-bold mb-3">이번 주말 예배 PPT, 제가 대신 만들어 드립니다</h1>
+        <p class="text-amber-100 mt-2">매주 선착순 5분 한정! 가을 감성 템플릿 11월 무료 이벤트</p>
+    </header>
+
+    <main class="max-w-3xl mx-auto mt-8 px-4">
+        
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mb-8">
+            <h2 class="text-lg font-bold text-gray-800 mb-2">🎉 11월 한정 무료 이벤트 안내</h2>
+            <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                매주 금요일 밤, PPT 만드시느라 뺏겼던 2시간을 돌려드립니다.<br>
+                12월 정식 유료 서비스 론칭에 앞서 11월 한 달간 무료로 텍스트를 입혀드립니다.
+            </p>
+            <ul class="text-sm text-gray-600 space-y-2 bg-gray-50 p-4 rounded-lg">
+                <li><strong>혜택:</strong> 토요일 오후 6시 전까지 완성본 메일 발송</li>
+                <li><strong>안내:</strong> 퀄리티 유지를 위해 매주 <strong>선착순 5교회</strong>만 받습니다.</li>
+                <li class="text-xs text-gray-500 mt-2">* 폼 제출 시, 익명 처리된 완성본 화면 일부가 추후 포트폴리오로 활용될 수 있음에 동의하는 것으로 간주합니다.</li>
+            </ul>
+        </div>
+
+        <form id="pptForm" class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <h2 class="text-xl font-bold text-gray-800 mb-6 border-b pb-4">예배 정보 입력</h2>
+
+            <div class="space-y-6">
+                <div>
+                    <label class="block font-bold text-gray-700">1. 완성본을 받아보실 이메일 <span class="text-red-500">*</span></label>
+                    <input type="email" id="email" class="form-input" required placeholder="example@email.com">
+                </div>
+
+                <div>
+                    <label class="block font-bold text-gray-700">2. 예배명 <span class="text-red-500">*</span></label>
+                    <input type="text" id="worshipName" class="form-input" required placeholder="예: 주일 2부 예배, 청년부 예배">
+                </div>
+
+                <div>
+                    <label class="block font-bold text-gray-700 mb-2">3. 예배 날짜 <span class="text-red-500">*</span></label>
+                    <div class="space-y-2">
+                        <label class="flex items-center"><input type="radio" name="worshipDate" value="2026-11-15" class="mr-2" required> 2026년 11월 15일 (주일)</label>
+                        <label class="flex items-center"><input type="radio" name="worshipDate" value="2026-11-22" class="mr-2" required> 2026년 11월 22일 (주일)</label>
+                        <label class="flex items-center"><input type="radio" name="worshipDate" value="2026-11-29" class="mr-2" required> 2026년 11월 29일 (주일)</label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-bold text-gray-700">4. 대표 기도자 성함 및 직분 <span class="text-red-500">*</span></label>
+                    <input type="text" id="prayerLeader" class="form-input" required placeholder="예: 홍길동 장로">
+                </div>
+
+                <div>
+                    <label class="block font-bold text-gray-700">5. 설교 제목 <span class="text-red-500">*</span></label>
+                    <input type="text" id="sermonTitle" class="form-input" required placeholder="설교 제목을 입력해주세요">
+                </div>
+
+                <div>
+                    <label class="block font-bold text-gray-700">6. 설교 본문 <span class="text-red-500">*</span></label>
+                    <input type="text" id="sermonText" class="form-input" required placeholder="예: 요한복음 3장 16절~18절">
+                </div>
+
+                <div>
+                    <label class="block font-bold text-gray-700">7. 찬양 리스트 (3~5곡) <span class="text-red-500">*</span></label>
+                    <textarea id="praiseList" rows="4" class="form-input" required placeholder="1. 내 영혼이 은총 입어&#10;2. ..."></textarea>
+                </div>
+
+                <div>
+                    <label class="block font-bold text-gray-700">8. 주요 광고 사항 <span class="text-gray-400 font-normal">(선택)</span></label>
+                    <textarea id="announcements" rows="3" class="form-input" placeholder="광고 사항 입력"></textarea>
+                </div>
+                
+                <div>
+                    <label class="block font-bold text-gray-700">9. 비고 및 기타 요청 사항 <span class="text-gray-400 font-normal">(선택)</span></label>
+                    <textarea id="notes" rows="3" class="form-input" placeholder="원하시는 디자인 제목이나 추가 요청 사항을 적어주세요."></textarea>
+                </div>
+
+                <!-- 주보 이미지 업로드 UI -->
+                <div>
+                    <label class="block font-bold text-gray-700 mb-2">10. 주보 이미지 첨부 <span class="text-gray-400 font-normal">(선택)</span></label>
+                    <div class="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:bg-gray-50 transition">
+                        <input type="file" id="bulletinImg" accept="image/*" class="hidden">
+                        <label for="bulletinImg" class="cursor-pointer flex flex-col items-center">
+                            <svg class="w-8 h-8 text-gray-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                            <span class="text-sm text-gray-600 font-bold" id="fileNameText">이미지 파일 선택 (클릭)</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" id="submitBtn" class="w-full bg-amber-600 text-white font-bold text-lg py-4 rounded-xl mt-8 hover:bg-amber-700 transition duration-200">
+                무료로 신청하기
+            </button>
+            <p id="statusMsg" class="text-center mt-4 text-sm font-bold hidden"></p>
+        </form>
+    </main>
+
+    <script>
+        // 파일 업로드 시 이름 바뀌는 애니메이션
+        document.getElementById('bulletinImg').addEventListener('change', function(e) {
+            const fileName = e.target.files[0] ? e.target.files[0].name : "이미지 파일 선택 (클릭)";
+            document.getElementById('fileNameText').innerText = fileName;
+        });
+
+        // ★여기에 새로 배포한 앱스 스크립트 웹앱 주소를 넣으세요!★
+        const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+
+        document.getElementById('pptForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = document.getElementById('submitBtn');
+            const statusMsg = document.getElementById('statusMsg');
+            
+            submitBtn.disabled = true;
+            submitBtn.innerText = "데이터와 이미지를 전송 중입니다...";
+            submitBtn.classList.replace('bg-amber-600', 'bg-gray-400');
+
+            const getRadioVal = (name) => {
+                const ele = document.getElementsByName(name);
+                for(let i = 0; i < ele.length; i++) { if(ele[i].checked) return ele[i].value; }
+                return "";
+            }
+
+            const sendData = async (fileBase64 = "", fileName = "", mimeType = "") => {
+                const data = {
+                    email: document.getElementById('email').value,
+                    worshipName: document.getElementById('worshipName').value,
+                    worshipDate: getRadioVal('worshipDate'),
+                    prayerLeader: document.getElementById('prayerLeader').value,
+                    sermonTitle: document.getElementById('sermonTitle').value,
+                    sermonText: document.getElementById('sermonText').value,
+                    praiseList: document.getElementById('praiseList').value,
+                    announcements: document.getElementById('announcements').value,
+                    notes: document.getElementById('notes').value,
+                    fileBase64: fileBase64,
+                    fileName: fileName,
+                    mimeType: mimeType
+                };
+
+                try {
+                    const response = await fetch(SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+                    
+                    document.getElementById('pptForm').reset();
+                    document.getElementById('fileNameText').innerText = "이미지 파일 선택 (클릭)";
+                    statusMsg.innerText = "✅ 성공적으로 접수되었습니다! 이번 주 토요일 오후에 메일로 완성본을 보내드릴게요.";
+                    statusMsg.classList.remove('hidden', 'text-red-600');
+                    statusMsg.classList.add('text-green-600');
+                } catch (error) {
+                    statusMsg.innerText = "❌ 전송에 실패했습니다. 잠시 후 다시 시도해 주세요.";
+                    statusMsg.classList.remove('hidden', 'text-green-600');
+                    statusMsg.classList.add('text-red-600');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = "무료로 신청하기";
+                    submitBtn.classList.replace('bg-gray-400', 'bg-amber-600');
+                }
+            };
+
+            // 파일이 첨부되었는지 확인 후 인코딩하여 전송
+            const fileInput = document.getElementById('bulletinImg');
+            if(fileInput.files.length > 0) {
+                const file = fileInput.files[0];
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                    const base64String = reader.result.split(',')[1];
+                    sendData(base64String, file.name, file.type);
+                };
+                reader.readAsDataURL(file);
+            } else {
+                sendData(); // 첨부파일이 없으면 바로 텍스트만 전송
+            }
+        });
+    </script>
+</body>
+</html>
