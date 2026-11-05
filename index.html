@@ -113,7 +113,7 @@
             document.getElementById('fileNameText').innerText = fileName;
         });
 
-        // ★여기에 새로 배포한 앱스 스크립트 웹앱 주소를 넣으세요!★
+        // ★여기에 배포하신 앱스 스크립트 웹앱 주소를 넣으세요!★
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby5VoRzs6NMQ-hx8_KIwMQyeHwTQwY58X7SDgo-XD80UnNYHeHcygpJMOGQJM-TbUL37Q/exec";
 
         document.getElementById('pptForm').addEventListener('submit', async (e) => {
@@ -122,7 +122,7 @@
             const statusMsg = document.getElementById('statusMsg');
             
             submitBtn.disabled = true;
-            submitBtn.innerText = "데이터와 이미지를 전송 중입니다...";
+            submitBtn.innerText = "데이터를 전송 중입니다...";
             submitBtn.classList.replace('bg-amber-600', 'bg-gray-400');
 
             const getRadioVal = (name) => {
@@ -147,23 +147,35 @@
                     mimeType: mimeType
                 };
 
+                // CORS 문제를 해결하기 위한 URLSearchParams 방식 사용
+                const formBody = Object.keys(data).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])).join('&');
+
                 try {
+                    // mode 설정을 뺀 표준 fetch 방식
                     const response = await fetch(SCRIPT_URL, {
                         method: 'POST',
-                
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(data)
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: formBody
                     });
-                    
-                    document.getElementById('pptForm').reset();
-                    document.getElementById('fileNameText').innerText = "이미지 파일 선택 (클릭)";
-                    statusMsg.innerText = "✅ 성공적으로 접수되었습니다! 이번 주 토요일 오후에 메일로 완성본을 보내드릴게요.";
-                    statusMsg.classList.remove('hidden', 'text-red-600');
-                    statusMsg.classList.add('text-green-600');
+
+                    // 구글 앱스 스크립트 특성상 에러가 나더라도 html 콘텐츠로 응답하는 경우가 있어, 응답 확인 로직 추가
+                    if (response.ok) {
+                        document.getElementById('pptForm').reset();
+                        document.getElementById('fileNameText').innerText = "이미지 파일 선택 (클릭)";
+                        statusMsg.innerText = "✅ 성공적으로 접수되었습니다! 이번 주 토요일 오후에 메일로 완성본을 보내드릴게요.";
+                        statusMsg.classList.remove('hidden', 'text-red-600');
+                        statusMsg.classList.add('text-green-600');
+                    } else {
+                         throw new Error('Network response was not ok.');
+                    }
+
                 } catch (error) {
-                    statusMsg.innerText = "❌ 전송에 실패했습니다. 잠시 후 다시 시도해 주세요.";
+                    statusMsg.innerText = "❌ 전송에 실패했습니다. (CORS 또는 네트워크 오류)";
                     statusMsg.classList.remove('hidden', 'text-green-600');
                     statusMsg.classList.add('text-red-600');
+                    console.error('Error:', error);
                 } finally {
                     submitBtn.disabled = false;
                     submitBtn.innerText = "무료로 신청하기";
@@ -171,7 +183,6 @@
                 }
             };
 
-            // 파일이 첨부되었는지 확인 후 인코딩하여 전송
             const fileInput = document.getElementById('bulletinImg');
             if(fileInput.files.length > 0) {
                 const file = fileInput.files[0];
@@ -182,7 +193,7 @@
                 };
                 reader.readAsDataURL(file);
             } else {
-                sendData(); // 첨부파일이 없으면 바로 텍스트만 전송
+                sendData(); 
             }
         });
     </script>
