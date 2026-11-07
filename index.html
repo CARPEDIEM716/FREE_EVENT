@@ -3,127 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>예배 PPT 자동 생성 신청</title>
+    <title>예배 PPT 자동 생성 신청 | 추수감사절 이벤트</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
     <style>
-        body { font-family: 'Malgun Gothic', sans-serif; background-color: #F9FAFB; }
-        .form-input { width: 100%; padding: 0.75rem; border: 1px solid #D1D5DB; border-radius: 0.5rem; margin-top: 0.25rem; font-size: 0.95rem; }
-        .form-input:focus { outline: none; border-color: #D97706; ring: 2px; ring-color: #FCD34D; }
+        body { font-family: 'Pretendard', sans-serif; background-color: #FDFBF7; }
+        .form-input { 
+            width: 100%; padding: 0.875rem 1rem; border: 1px solid #E5E7EB; border-radius: 0.75rem; 
+            margin-top: 0.5rem; font-size: 0.95rem; background-color: #F9FAFB; transition: all 0.2s;
+        }
+        .form-input:focus { 
+            outline: none; border-color: #D97706; background-color: #FFFFFF;
+            box-shadow: 0 0 0 4px rgba(217, 119, 6, 0.1); 
+        }
+        .radio-custom { accent-color: #D97706; width: 1.1rem; height: 1.1rem; }
     </style>
 </head>
-<body class="text-gray-800 pb-20">
+<body class="text-gray-800 pb-24 antialiased">
 
-    <header class="bg-amber-600 text-white text-center py-10 px-4">
-        <h1 class="text-3xl font-bold mb-3">이번 주말 예배 PPT, 제가 대신 만들어 드립니다</h1>
-        <p class="text-amber-100 mt-2">매주 선착순 5분 한정! 가을 감성 템플릿 11월 무료 이벤트</p>
+    <!-- 세련된 그라데이션 헤더 -->
+    <header class="bg-gradient-to-br from-amber-700 via-amber-600 to-orange-500 text-white text-center pt-16 pb-32 px-4 rounded-b-[2.5rem] shadow-md">
+        <div class="inline-block bg-white/20 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm font-bold tracking-wide mb-4 text-amber-50">
+            🍂 11월 한정 무료 이벤트
+        </div>
+        <h1 class="text-3xl md:text-4xl font-extrabold mb-4 leading-tight tracking-tight">바쁜 11월, 예배 PPT는<br/>제가 대신 만들어 드립니다</h1>
+        <p class="text-amber-100 text-lg font-medium opacity-90">매주 선착순 5교회 한정, 가을 감성 템플릿 무료 제작</p>
     </header>
 
-    <main class="max-w-3xl mx-auto mt-8 px-4">
+    <!-- 메인 카드 폼 (헤더 위로 살짝 겹치게 배치) -->
+    <main class="max-w-3xl mx-auto -mt-20 px-4 relative z-10">
         
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mb-8">
-            <h2 class="text-lg font-bold text-gray-800 mb-2">🎉 11월 한정 무료 이벤트 안내</h2>
-            <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                매주 주말 말, PPT 만드시느라 뺏겼던 2시간을 돌려드립니다.<br>
-                12월 정식 유료 서비스 론칭에 앞서 11월 한 달간 무료로 완성본 PPT를 드립니다.
+        <!-- 안내 영역 -->
+        <div class="bg-white p-7 rounded-2xl shadow-xl shadow-amber-900/5 border border-amber-100 mb-8">
+            <h2 class="text-xl font-bold text-gray-800 mb-3 flex items-center gap-2">
+                <span class="text-amber-600">🎉</span> 이벤트 안내
+            </h2>
+            <p class="text-gray-600 leading-relaxed mb-5">
+                추수감사절과 연말 사역 준비로 눈코 뜰 새 없이 바쁘시죠?<br>
+                매주 금요일 밤, PPT 만드시느라 뺏겼던 2시간을 돌려드립니다. 찬양과 본문 텍스트만 남겨주시면 가을 감성 템플릿에 텍스트를 입혀서 완성해 드립니다.
             </p>
-            <ul class="text-sm text-gray-600 space-y-2 bg-gray-50 p-4 rounded-lg">
-                <li><strong>혜택:</strong> 토요일 오후 6시 전까지 완성본 메일 발송</li>
-                <li><strong>안내:</strong> 퀄리티 유지를 위해 매주 <strong>선착순 5교회</strong>만 받습니다.</li>
-                <li class="text-xs text-gray-500 mt-2">* 폼 제출 시, 익명 처리된 완성본 화면 일부가 추후 포트폴리오로 활용될 수 있음에 동의하는 것으로 간주합니다.</li>
-            </ul>
+            <div class="bg-amber-50 rounded-xl p-5 border border-amber-100/50 space-y-3">
+                <div class="flex items-start gap-3 text-sm text-gray-700">
+                    <span class="bg-amber-200 text-amber-800 px-2 py-0.5 rounded font-bold text-xs mt-0.5">혜택</span>
+                    <p>토요일 오후 6시 전까지 완성본 메일 발송</p>
+                </div>
+                <div class="flex items-start gap-3 text-sm text-gray-700">
+                    <span class="bg-amber-200 text-amber-800 px-2 py-0.5 rounded font-bold text-xs mt-0.5">안내</span>
+                    <p>퀄리티 유지를 위해 매주 <strong>선착순 5교회</strong>만 받습니다.</p>
+                </div>
+                <div class="flex items-start gap-3 text-sm text-amber-700 font-bold mt-2 pt-3 border-t border-amber-200/50">
+                    <span class="text-lg">💡</span>
+                    <p>선착순이 마감되더라도 폼을 남겨주시면 '대기자 명단'으로 등록되며, 추후 정식 오픈 시 가장 먼저 특별한 혜택으로 안내해 드립니다!</p>
+                </div>
+            </div>
         </div>
 
-        <form id="pptForm" class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-            <h2 class="text-xl font-bold text-gray-800 mb-6 border-b pb-4">예배 정보 입력</h2>
+        <!-- 입력 폼 영역 -->
+        <form id="pptForm" class="bg-white p-7 md:p-10 rounded-3xl shadow-xl shadow-gray-200/50 border border-gray-100">
+            <h2 class="text-2xl font-extrabold text-gray-800 mb-8 border-b-2 border-gray-100 pb-4">예배 정보 입력</h2>
 
-            <div class="space-y-6">
+            <div class="space-y-8">
                 <div>
-                    <label class="block font-bold text-gray-700">1. 완성본을 받아보실 이메일 <span class="text-red-500">*</span></label>
+                    <label class="block font-bold text-gray-700 text-lg">1. 완성본을 받아보실 이메일 <span class="text-amber-500">*</span></label>
                     <input type="email" id="email" class="form-input" required placeholder="example@email.com">
                 </div>
 
                 <div>
-                    <label class="block font-bold text-gray-700">2. 예배명 <span class="text-red-500">*</span></label>
+                    <label class="block font-bold text-gray-700 text-lg">2. 예배명 <span class="text-amber-500">*</span></label>
                     <input type="text" id="worshipName" class="form-input" required placeholder="예: 주일 2부 예배, 청년부 예배">
                 </div>
+                
+                <div class="bg-gray-50/50 p-5 rounded-2xl border border-gray-100">
+                    <label class="block font-bold text-gray-700 text-lg mb-3">3. 예배 날짜 <span class="text-amber-500">*</span></label>
+                    <div class="space-y-3">
+                        <label class="flex items-center p-3 bg-white rounded-xl border border-gray-200 cursor-pointer hover:border-amber-400 transition-colors">
+                            <input type="radio" name="worshipDate" value="2026-11-15" class="radio-custom mr-3" required> 
+                            <span class="font-medium">2026년 11월 15일 (추수감사주일)</span>
+                        </label>
+                        <label class="flex items-center p-3 bg-white rounded-xl border border-gray-200 cursor-pointer hover:border-amber-400 transition-colors">
+                            <input type="radio" name="worshipDate" value="2026-11-22" class="radio-custom mr-3" required> 
+                            <span class="font-medium">2026년 11월 22일 (주일)</span>
+                        </label>
+                        <label class="flex items-center p-3 bg-white rounded-xl border border-gray-200 cursor-pointer hover:border-amber-400 transition-colors">
+                            <input type="radio" name="worshipDate" value="2026-11-29" class="radio-custom mr-3" required> 
+                            <span class="font-medium">2026년 11월 29일 (주일)</span>
+                        </label>
+                    </div>
+                </div>
 
-                <div>
-                    <label class="block font-bold text-gray-700 mb-2">3. 예배 날짜 <span class="text-red-500">*</span></label>
-                    <div class="space-y-2">
-                        <label class="flex items-center"><input type="radio" name="worshipDate" value="2026-11-15" class="mr-2" required> 2026년 11월 15일 (주일)</label>
-                        <label class="flex items-center"><input type="radio" name="worshipDate" value="2026-11-22" class="mr-2" required> 2026년 11월 22일 (주일)</label>
-                        <label class="flex items-center"><input type="radio" name="worshipDate" value="2026-11-29" class="mr-2" required> 2026년 11월 29일 (주일)</label>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block font-bold text-gray-700 text-lg">4. 기도자 및 직분 <span class="text-amber-500">*</span></label>
+                        <input type="text" id="prayerLeader" class="form-input" required placeholder="예: 홍길동 장로">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-gray-700 text-lg">5. 설교 제목 <span class="text-amber-500">*</span></label>
+                        <input type="text" id="sermonTitle" class="form-input" required placeholder="설교 제목 입력">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block font-bold text-gray-700">4. 대표 기도자 성함 및 직분 <span class="text-red-500">*</span></label>
-                    <input type="text" id="prayerLeader" class="form-input" required placeholder="예: 홍길동 장로">
-                </div>
-
-                <div>
-                    <label class="block font-bold text-gray-700">5. 설교 제목 <span class="text-red-500">*</span></label>
-                    <input type="text" id="sermonTitle" class="form-input" required placeholder="설교 제목을 입력해주세요">
-                </div>
-
-                <div>
-                    <label class="block font-bold text-gray-700">6. 설교 본문 <span class="text-red-500">*</span></label>
+                    <label class="block font-bold text-gray-700 text-lg">6. 설교 본문 <span class="text-amber-500">*</span></label>
                     <input type="text" id="sermonText" class="form-input" required placeholder="예: 요한복음 3장 16절~18절">
                 </div>
 
                 <div>
-                    <label class="block font-bold text-gray-700">7. 찬양 리스트 (3~5곡) <span class="text-red-500">*</span></label>
+                    <label class="block font-bold text-gray-700 text-lg">7. 찬양 리스트 (3~5곡) <span class="text-amber-500">*</span></label>
+                    <p class="text-sm text-gray-500 mt-1 mb-2">곡명과 함께 유튜브 링크나 가사 첫 줄을 적어주시면 정확합니다.</p>
                     <textarea id="praiseList" rows="4" class="form-input" required placeholder="1. 내 영혼이 은총 입어&#10;2. ..."></textarea>
                 </div>
 
                 <div>
-                    <label class="block font-bold text-gray-700">8. 주요 광고 사항 <span class="text-gray-400 font-normal">(선택)</span></label>
-                    <textarea id="announcements" rows="3" class="form-input" placeholder="광고 사항 입력"></textarea>
+                    <label class="block font-bold text-gray-700 text-lg">8. 주요 광고 사항 <span class="text-gray-400 text-base font-normal">(선택)</span></label>
+                    <textarea id="announcements" rows="3" class="form-input" placeholder="요약해서 3~4줄 이내로 적어주세요."></textarea>
                 </div>
                 
                 <div>
-                    <label class="block font-bold text-gray-700">9. 비고 및 기타 요청 사항 <span class="text-gray-400 font-normal">(선택)</span></label>
-                    <textarea id="notes" rows="3" class="form-input" placeholder="원하시는 디자인이 포함된 블로그 글의 제목을 적어주시거나, 추가 요청 사항을 적어주세요."></textarea>
+                    <label class="block font-bold text-gray-700 text-lg">9. 비고 및 기타 요청 <span class="text-gray-400 text-base font-normal">(선택)</span></label>
+                    <textarea id="notes" rows="2" class="form-input" placeholder="원하시는 디자인이나 추가 요청 사항을 적어주세요."></textarea>
                 </div>
 
-                <!-- 주보 이미지 업로드 UI -->
-                <div>
-                    <label class="block font-bold text-gray-700 mb-2">10. 주보 이미지 첨부 <span class="text-gray-400 font-normal">(선택)</span></label>
-                    <div class="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:bg-gray-50 transition">
-                        <input type="file" id="bulletinImg" accept="image/*" class="hidden">
-                        <label for="bulletinImg" class="cursor-pointer flex flex-col items-center">
-                            <svg class="w-8 h-8 text-gray-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
-                            <span class="text-sm text-gray-600 font-bold" id="fileNameText">이미지 파일 선택 (클릭)</span>
+                <!-- 설문조사 섹션 -->
+                <div class="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-2xl border border-gray-200">
+                    <label class="block font-bold text-gray-800 text-lg mb-2">10. 📝 평소 예배 PPT를 준비하실 때 가장 힘든 부분은 무엇인가요? <span class="text-gray-400 text-base font-normal">(선택)</span></label>
+                    <p class="text-sm text-gray-500 mb-4">남겨주신 의견은 더 좋은 서비스를 기획하는 데 큰 도움이 됩니다.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-gray-700">
+                        <label class="flex items-center p-3 bg-white rounded-lg border border-gray-200 cursor-pointer hover:bg-amber-50 hover:border-amber-300 transition-all">
+                            <input type="radio" name="survey" value="디자인 및 템플릿 고민" class="radio-custom mr-3"> <span>깔끔한 디자인/템플릿 찾기</span>
                         </label>
+                        <label class="flex items-center p-3 bg-white rounded-lg border border-gray-200 cursor-pointer hover:bg-amber-50 hover:border-amber-300 transition-all">
+                            <input type="radio" name="survey" value="매주 텍스트 입력/오타수정" class="radio-custom mr-3"> <span>텍스트 입력 및 오타 검수</span>
+                        </label>
+                        <label class="flex items-center p-3 bg-white rounded-lg border border-gray-200 cursor-pointer hover:bg-amber-50 hover:border-amber-300 transition-all">
+                            <input type="radio" name="survey" value="작업 시간 부족" class="radio-custom mr-3"> <span>오래 걸리는 작업 시간</span>
+                        </label>
+                        <label class="flex items-center p-3 bg-white rounded-lg border border-gray-200 cursor-pointer hover:bg-amber-50 hover:border-amber-300 transition-all">
+                            <input type="radio" name="survey" value="기타" class="radio-custom mr-3"> <span>기타 사항</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 파일 업로드 UI -->
+                <div>
+                    <label class="block font-bold text-gray-700 text-lg mb-3">11. 주보 이미지 첨부 <span class="text-gray-400 text-base font-normal">(선택)</span></label>
+                    <div class="relative border-2 border-dashed border-gray-300 rounded-2xl p-8 text-center hover:bg-amber-50 hover:border-amber-400 transition-all group">
+                        <input type="file" id="bulletinImg" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                        <div class="flex flex-col items-center pointer-events-none">
+                            <div class="bg-gray-100 p-3 rounded-full mb-3 group-hover:bg-amber-100 group-hover:text-amber-600 transition-colors">
+                                <svg class="w-8 h-8 text-gray-500 group-hover:text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                            </div>
+                            <span class="text-base text-gray-700 font-bold mb-1" id="fileNameText">이미지 파일 선택 또는 드래그</span>
+                            <span class="text-sm text-gray-400">JPG, PNG 형식 지원</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <button type="submit" id="submitBtn" class="w-full bg-amber-600 text-white font-bold text-lg py-4 rounded-xl mt-8 hover:bg-amber-700 transition duration-200">
+            <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-amber-600 to-orange-500 text-white font-extrabold text-xl py-5 rounded-2xl mt-10 hover:from-amber-700 hover:to-orange-600 transform hover:-translate-y-1 hover:shadow-xl transition-all duration-200">
                 무료로 신청하기
             </button>
-            <p id="statusMsg" class="text-center mt-4 text-sm font-bold hidden"></p>
+            
+            <!-- 결과 메시지 영역 -->
+            <div id="statusMsgContainer" class="hidden mt-6 p-5 rounded-xl border text-center">
+                <p id="statusMsg" class="text-base font-bold"></p>
+            </div>
         </form>
     </main>
 
     <script>
-        // 파일 업로드 시 이름 바뀌는 애니메이션
         document.getElementById('bulletinImg').addEventListener('change', function(e) {
-            const fileName = e.target.files[0] ? e.target.files[0].name : "이미지 파일 선택 (클릭)";
+            const fileName = e.target.files[0] ? e.target.files[0].name : "이미지 파일 선택 또는 드래그";
             document.getElementById('fileNameText').innerText = fileName;
+            if(e.target.files[0]) {
+                document.getElementById('fileNameText').classList.add('text-amber-600');
+            }
         });
 
-        // ★여기에 배포하신 앱스 스크립트 웹앱 주소를 넣으세요!★
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby5VoRzs6NMQ-hx8_KIwMQyeHwTQwY58X7SDgo-XD80UnNYHeHcygpJMOGQJM-TbUL37Q/exec";
+        // ★앱스 스크립트 웹앱 주소 세팅 완료
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwLlmeofXFAvZuA8shA1gYaGo_6ZJ44GZrRfRv_ZAoKHo8XaJgbbpYuAq7DFF88pRx7SA/exec";
 
         document.getElementById('pptForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const submitBtn = document.getElementById('submitBtn');
+            const statusContainer = document.getElementById('statusMsgContainer');
             const statusMsg = document.getElementById('statusMsg');
             
             submitBtn.disabled = true;
             submitBtn.innerText = "데이터를 전송 중입니다...";
-            submitBtn.classList.replace('bg-amber-600', 'bg-gray-400');
+            submitBtn.classList.replace('from-amber-600', 'from-gray-400');
+            submitBtn.classList.replace('to-orange-500', 'to-gray-500');
 
             const getRadioVal = (name) => {
                 const ele = document.getElementsByName(name);
@@ -142,44 +210,40 @@
                     praiseList: document.getElementById('praiseList').value,
                     announcements: document.getElementById('announcements').value,
                     notes: document.getElementById('notes').value,
+                    survey: getRadioVal('survey'), 
                     fileBase64: fileBase64,
                     fileName: fileName,
                     mimeType: mimeType
                 };
 
-                // CORS 문제를 해결하기 위한 URLSearchParams 방식 사용
-                const formBody = Object.keys(data).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])).join('&');
-
                 try {
-                    // mode 설정을 뺀 표준 fetch 방식
-                    const response = await fetch(SCRIPT_URL, {
+                    // ★ 최종 수정 부분: no-cors 모드 적용, 통합 메시지 출력
+                    await fetch(SCRIPT_URL, {
                         method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded'
-                        },
-                        body: formBody
+                        mode: 'no-cors',
+                        body: JSON.stringify(data)
                     });
 
-                    // 구글 앱스 스크립트 특성상 에러가 나더라도 html 콘텐츠로 응답하는 경우가 있어, 응답 확인 로직 추가
-                    if (response.ok) {
-                        document.getElementById('pptForm').reset();
-                        document.getElementById('fileNameText').innerText = "이미지 파일 선택 (클릭)";
-                        statusMsg.innerText = "✅ 성공적으로 접수되었습니다! 이번 주 토요일 오후에 메일로 완성본을 보내드릴게요.";
-                        statusMsg.classList.remove('hidden', 'text-red-600');
-                        statusMsg.classList.add('text-green-600');
-                    } else {
-                         throw new Error('Network response was not ok.');
-                    }
-
+                    document.getElementById('pptForm').reset();
+                    document.getElementById('fileNameText').innerText = "이미지 파일 선택 또는 드래그";
+                    document.getElementById('fileNameText').classList.remove('text-amber-600');
+                    
+                    statusContainer.classList.remove('hidden');
+                    statusContainer.className = "mt-6 p-5 rounded-xl border bg-green-50 border-green-200 text-center";
+                    statusMsg.innerHTML = "✅ 성공적으로 접수되었습니다!<br/>선착순 5교회 안에 드셨다면 이번 주 토요일 오후에 메일로 완성본을 보내드릴게요.<br/>(마감 시 대기자로 자동 등록됩니다)";
+                    statusMsg.className = "text-base font-bold text-green-700 leading-relaxed";
+                    
                 } catch (error) {
-                    statusMsg.innerText = "❌ 전송에 실패했습니다. (CORS 또는 네트워크 오류)";
-                    statusMsg.classList.remove('hidden', 'text-green-600');
-                    statusMsg.classList.add('text-red-600');
-                    console.error('Error:', error);
+                    statusContainer.classList.remove('hidden');
+                    statusContainer.className = "mt-6 p-5 rounded-xl border bg-red-50 border-red-200 text-center";
+                    statusMsg.innerText = "❌ 전송 에러: " + error.message; 
+                    statusMsg.className = "text-base font-bold text-red-600";
+                    console.error('상세 에러:', error);
                 } finally {
                     submitBtn.disabled = false;
                     submitBtn.innerText = "무료로 신청하기";
-                    submitBtn.classList.replace('bg-gray-400', 'bg-amber-600');
+                    submitBtn.classList.replace('from-gray-400', 'from-amber-600');
+                    submitBtn.classList.replace('to-gray-500', 'to-orange-500');
                 }
             };
 
@@ -188,8 +252,7 @@
                 const file = fileInput.files[0];
                 const reader = new FileReader();
                 reader.onloadend = () => {
-                    const base64String = reader.result.split(',')[1];
-                    sendData(base64String, file.name, file.type);
+                    sendData(reader.result.split(',')[1], file.name, file.type);
                 };
                 reader.readAsDataURL(file);
             } else {
