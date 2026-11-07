@@ -159,7 +159,22 @@
                 </div>
             </div>
 
-            <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-amber-600 to-orange-500 text-white font-extrabold text-xl py-5 rounded-2xl mt-10 hover:from-amber-700 hover:to-orange-600 transform hover:-translate-y-1 hover:shadow-xl transition-all duration-200">
+            <!-- ★ 추가: 개인정보 수집 및 이용 동의 -->
+            <div class="bg-gray-50 p-5 rounded-2xl border border-gray-200 mt-8">
+                <label class="flex items-start cursor-pointer group">
+                    <input type="checkbox" id="privacyConsent" class="w-5 h-5 mt-0.5 mr-3 accent-amber-600 cursor-pointer" required>
+                    <div>
+                        <span class="block text-sm font-bold text-gray-800 group-hover:text-amber-700 transition-colors">개인정보 수집 및 이용에 동의합니다. <span class="text-amber-500">*</span></span>
+                        <p class="text-xs text-gray-500 mt-1.5 leading-relaxed">
+                            - 수집 목적: 예배 PPT 제작 및 완성본 발송, 서비스 정식 오픈 관련 안내<br>
+                            - 수집 항목: 이메일 등 위 폼에 기재된 정보<br>
+                            - 보유 기간: <strong>이벤트 종료 및 안내 완료 후 1개월 이내 파기</strong>
+                        </p>
+                    </div>
+                </label>
+            </div>
+
+            <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-amber-600 to-orange-500 text-white font-extrabold text-xl py-5 rounded-2xl mt-8 hover:from-amber-700 hover:to-orange-600 transform hover:-translate-y-1 hover:shadow-xl transition-all duration-200">
                 무료로 신청하기
             </button>
             
@@ -179,8 +194,8 @@
             }
         });
 
-        // ★앱스 스크립트 웹앱 주소 세팅 완료
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwLlmeofXFAvZuA8shA1gYaGo_6ZJ44GZrRfRv_ZAoKHo8XaJgbbpYuAq7DFF88pRx7SA/exec";
+        // ★ 보내주신 스크립트 웹앱 주소를 적용했습니다.
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxd3QA-8Z79cf7hNiTwOBcrpxl-VqwzvenBQCRaOeUFUL0LkAyKypyrWyODLspxDS9xcg/exec";
 
         document.getElementById('pptForm').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -217,7 +232,6 @@
                 };
 
                 try {
-                    // ★ 최종 수정 부분: no-cors 모드 적용, 통합 메시지 출력
                     await fetch(SCRIPT_URL, {
                         method: 'POST',
                         mode: 'no-cors',
